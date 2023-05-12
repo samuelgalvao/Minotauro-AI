@@ -1,0 +1,37 @@
+# Minotauro-Ai
+
+Minotauro-Ai is an innovative machine learning project that aims to teach an AI system how to escape from a maze. This project leverages the power of cutting-edge techniques in machine learning, particularly reinforcement learning, to train an intelligent agent capable of navigating through complex and challenging maze environments. 
+
+## Introduction
+
+The concept of Minotauro-Ai draws inspiration from the mythological creature, the Minotaur, who was famously trapped within a labyrinth. In this project, we aim to simulate the Minotaur's struggle to find an exit, and through the power of AI, help the AI agent discover optimal escape strategies.
+
+## Features
+
+- Maze Generation: The project includes a maze generator module that generates random mazes of various sizes and complexity levels. This allows for a diverse range of training scenarios and ensures the agent learns to navigate through different maze layouts.
+
+- Reinforcement Learning: The core of Minotauro-Ai revolves around reinforcement learning algorithms. By utilizing techniques such as Q-learning or deep Q-networks (DQNs), we train the AI agent to make intelligent decisions based on rewards and penalties associated with its actions. Through iterative training, the agent gradually learns to navigate the maze efficiently.
+
+- Adaptive Pathfinding: Minotauro-Ai emphasizes the development of an adaptive pathfinding strategy. The AI agent learns from its previous experiences and dynamically adjusts its decision-making process to optimize its escape strategy. This adaptability ensures the agent can handle a variety of maze layouts and discover novel paths to the exit.
+
+## Getting Started
+
+To get started with Minotauro-Ai, follow these steps:
+
+1. Clone the project repository: `git clone https://github.com/your-username/minotauro-ai.git`
+
+2. Install the required dependencies. Make sure you have Python 3.x and the necessary libraries such as TensorFlow, NumPy, and OpenAI Gym.
+
+3. Explore the available maze generator options and configure the desired maze characteristics, such as size and complexity, in the configuration files.
+
+4. Train the AI agent using the provided reinforcement learning algorithms. Experiment with different hyperparameters to achieve optimal results.
+
+5. Evaluate the trained AI agent's performance by letting it navigate through various maze scenarios and observe its escape strategies.
+
+## Contributions and Feedback
+
+Contributions to Minotauro-Ai are welcome! If you have any ideas, improvements, or bug fixes, please submit a pull request. Additionally, we value your feedback and would appreciate any suggestions or comments you may have.
+
+## License
+
+Minotauro-Ai is released under the [MIT License](https://opensource.org/licenses/MIT). Feel free to use, modify, and distribute the code for both non-commercial and commercial purposes.
