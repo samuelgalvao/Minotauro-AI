@@ -1,40 +1,60 @@
 import pygame
-import sys
+import os, sys
+from pygame.locals import *
 
-pygame.init()
-width, height = 800, 600
-screen = pygame.display.set_mode((width, height))
 
-class Player:
+class Player(pygame.sprite.Sprite):
     def __init__(self):
-        self.image = pygame.Surface((50, 50))  # Create a player image
-        self.image.fill((255, 255, 255))  # Fill it with red color
-        self.rect = self.image.get_rect()  # Get the rectangle of the image
-        self.rect.center = (width // 2, height // 2)  # Set initial position
+        pygame.sprite.Sprite.__init__(self)
+        self.images = []
 
-    def update(self, speed):
-        keys = pygame.key.get_pressed()  # Get the pressed keys
-        if keys[pygame.K_LEFT]:
-            self.rect.x -= speed  # Move left
-        if keys[pygame.K_RIGHT]:
-            self.rect.x += speed  # Move right
-        if keys[pygame.K_UP]:
-            self.rect.y -= speed  # Move up
-        if keys[pygame.K_DOWN]:
-            self.rect.y += speed  # Move down
+        path = r'C:\Users\Samuel\Documents\Estudos\Minotauro-AI\game\src\player_idle_01.png'
+        # img = pygame.image.load(os.path.join(path)).convert()
+        img = pygame.image.load(os.path.join(path)).convert()
+        img.convert_alpha()     # optimise alpha
+        img.set_colorkey((0, 0, 0)) # set alpha
+        self.images.append(img)
+        self.image = self.images[0]
+        self.rect = self.image.get_rect()
+        
+# SETUP
 
-    def draw(self):
-        screen.blit(self.image, self.rect)  # Draw the player on the screen
 
-player = Player()
+def main():
+    # CONSTANTS
+    W_WIDTH, W_HEIGHT = 500, 500
+    
+    # Init
+    pygame.init()
+    screen = pygame.display.set_mode((W_WIDTH, W_HEIGHT))
+    clock = pygame.time.Clock()
+    run = True
+    
+    # Background
+    background = pygame.Surface(screen.get_size())
+    background = background.convert()
+    background.fill('black')
+    
+    # Player
+    player = Player()   # spawn player
+    player.rect.x = 0   # go to x
+    player.rect.y = 0   # go to y
+    player_list = pygame.sprite.Group()
+    player_list.add(player)
+        
+    while run:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                run = False
+        
+        player_list.draw(background)
+        
+        screen.blit(background, (0, 0))
+        pygame.display.update()
+        
+        clock.tick(60)
+    
+    
+    
+if __name__ == '__main__': main()
 
-while True:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            pygame.quit()
-            sys.exit()
-
-    player.update(0.1)  # Update player position
-    screen.fill((0, 0, 0))  # Clear the screen
-    player.draw()  # Draw the player
-    pygame.display.flip()  # Update the display
